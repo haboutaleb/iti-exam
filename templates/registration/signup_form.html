@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    {% if form.non_field_errors %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {% for error in form.non_field_errors %}
+                <p{% if forloop.last %} class="mb-0"{% endif %}>{{ error }}</p>
+            {% endfor %}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+    {% endif %}
+<div class="limiter">
+    <a href="{% url 'signup' %}" class="btn btn-danger" role="button"> Back </a>
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <form method="post" novalidate class="login100-form-register validate-form">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ next }}">
+                    <span class="login100-form-title">
+						Sign up TO a {{ user_type }}
+					</span>
+                    {% if user_type %}
+                        <div class="wrap-input100 validate-input" data-validate="Valid email is required: name">
+                            <input class="input100" type="text" name="{{ form.username.name }}"
+                                   placeholder="User Name" required_id="id_username" />
+                                   {{form.errors.username}}
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+							<i class="fa fa-user-o" aria-hidden="true"></i>
+						</span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input" data-validate="Password is required">
+                            <input class="input100" type="password" id="id_password" name="{{ form.password1.name }}"
+                                   placeholder="Enter Password "/>
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input" data-validate="Password is required">
+                            <input class="input100" type="password" id="id_password2" name="{{ form.password2.name }}"
+                                   placeholder="Enter Password Again"/>
+                                {{form.errors.password2}}
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+                        </div>
+                    {% endif %}
+                    {% if form.subjects %}
+                        <div class="wrap-input100 validate-input">
+                            {{ form.subjects }}
+                        </div>
+                    {% endif %}
+                    {% if form.subject.name %}
+                        <div class="wrap-input100 validate-input">
+                            <select class="input100" name="{{ form.subject.name }}">
+                                {% for name in form.subject %}
+                                    {{ name }}
+                                {% endfor %}
+                            </select>
+                        </div>
+                    {% endif %}
+                    {% if form.name %}
+                        <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                            <input class="input100" type="text" name="{{ form.name.name }}"
+                                   placeholder="Subject Name"/>
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+							<i class="fa fa-book" aria-hidden="true"></i>
+						</span>
+                        </div>
+                        <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                            <input class="input100" type="color" name="color"
+                                   placeholder="Choice Color"/>
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+							<i class="fa fa-paint-brush" aria-hidden="true"></i>
+						</span>
+                        </div>
+                    {% endif %}
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn">
+                            ADD
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

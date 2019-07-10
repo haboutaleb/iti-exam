@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="row mt-5 mb-5">
+    <div class="col-12">
+        {% include 'classroom/instructors/_header.html' with active='new' %}
+    </div>
+         {% if request.user.instructor.subject %}
+    <div class="row mb-2">
+        <div class="col-12">
+            <form METHOD="post"  ACTION="{% url 'instructor:Exam_degree' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="QuestionDifficultNum">difficult Questions number</label>
+                    <input type="number" class="form-control" id="QuestionDifficultNum"  name="difficult_num" value='{{ request.user.instructor.subject.question_num_difficult}}'  placeholder="question number">
+                </div>
+
+                <div class="form-group">
+                    <label for="QuestionUnderstandingNum">Understanding Questions number</label>
+                    <input type="number" class="form-control" id="QuestionUnderstandingNum" name="understanding_num"  value='{{ request.user.instructor.subject.question_num_understanding}}'  placeholder="question number">
+                </div>
+
+                <div class="form-group">
+                    <label for="QuestionRaminingNum"> remining Questions number </label>
+                    <input type="number" class="form-control" id="QuestionRaminingNum" name="ramining_num"  value='{{ request.user.instructor.subject.question_num_ramining}}'  placeholder="question number">
+                </div>
+                <input type="submit" class="btn btn-primary align-content-end mb-2" value="update"/>
+            </form>
+        </div>
+        <div class="col-4">
+             <a href="{% url 'student:take_exam' request.user.instructor.subject.id %}"
+                class="btn btn-success mb-2">show Exam simple</a>
+        </div>
+        <div class="col-4">
+             <a href="{% url 'instructor:qustion_add' %}"
+                class="btn btn-danger mb-2">Add question</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+
+            <table class="table table-hover table-bordered">
+                <tr>
+                    <th>Question text</th>
+                    <th>Question difficulty</th>
+                    <th>Question type</th>
+                    <th>Question Chapter</th>
+                    <th colspan="2">option</th>
+                </tr>
+
+                {% for question in questions %}
+                    <tr>
+                        <td>{{ question.text|upper }}
+                        </td>
+                        <td>{%if question.difficulty == 1 %}difficult{% else %}simple{% endif %}
+                        </td>
+                        <td>{%if question.objective == 1 %}ramining{% elif question.objective == 2 %}undestanding{%else%}creativety{% endif %}
+                        </td>
+                        <td>{{ question.chapter_num|upper }}
+                        </td>
+                        <td>
+                            <a class="btn btn-success" href="{% url 'instructor:question_answers_edit' question.pk %}">Edit</a>
+                        </td>
+
+                        <td class="m-4">
+                            <button type="submit" value="Delete" id="{{ question.pk }}" class="btn btn-danger">delete
+                            </button>
+                        </td>
+
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+    </div>
+
+    <div class="pagination m-auto">
+        <span class="step-links">
+            {% if questions.has_previous %}
+                <a class="btn btn-secondary" href="?page=1">&laquo; first</a>
+                <a class="btn btn-danger" href="?page={{ questions.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current btn btn-primary">
+                Page {{ questions.number }} of {{ questions.paginator.num_pages }}.
+            </span>
+
+            {% if questions.has_next %}
+                <a class="btn btn-success" href="?page={{ questions.next_page_number }}">next</a>
+                <a class="btn btn-secondary" href="?page={{ questions.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+
+        {% else %}
+         <p>there is An Error . please contact your manger to update the situation .</p>
+
+        {% endif %}
+
+    <script type="text/javascript">
+        let table = document.getElementsByTagName("table")[0],
+            ajax = new XMLHttpRequest();
+
+        table.onclick = function (event) {
+            if (event.target.tagName == "BUTTON") {
+                row = event.target.parentElement.parentElement;
+                ajax.open("GET", "http://localhost:8000/instructor/deleteQuestionAnswers/" + event.target.id);
+                ajax.send();
+                ajax.onreadystatechange = () => {
+                    if (ajax.readyState === 4 && ajax.status === 200) {
+                        response = JSON.parse(ajax.responseText);
+                        console.log(response);
+                        if (response.success) {
+                            row.remove();
+
+                        } else {
+                            flash.innerHTML = "<p class='alert alert-danger'>" + data.msg + "</p>";
+
+                        }
+                        // if(response['msg']== "done")
+                        // row.remove();
+                    }
+                }
+
+            }
+        }
+
+
+    </script>
+{% endblock %}

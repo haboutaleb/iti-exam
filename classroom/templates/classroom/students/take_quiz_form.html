@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+        {% if request.user.is_instructor %}
+        <div class="row justify-content-center">
+                <div class="container">
+                    <div class="col-12">
+                            <div class="alert alert-info alert-dismissible fade show h2 " role="alert">
+                                this simple of exam has : <br>
+                                -difficult questions : [{{info.difficult_num}}] <br>
+                                -understanding questions : [{{info.understanding_num}}] <br>
+                                -remining questions : [{{info.ramining_num}}] <br>
+                                -and all chapters has at least three questions as ordered :  {{info.qustion_chapter}}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                    </div>
+                </div>
+        </div>
+        {% endif %}
+
+    <div style="background-color: #d8841c;" class="row mt-5 mb-5">
+        <div style="color: #FFFFFF;" class="col-12">
+            <h2 class="mb-1 h1 text-center">Your Exam in {{ subject.name }}</h2>
+        </div>
+        <hr/>
+        <div class="col-12">
+            <form method="post" action="">
+                {% csrf_token %}
+                {% for question , answers in data %}
+                    <div style="font-size: 18px; background-color: #f7c51d; border-radius: 5px; font-weight: bold;"
+                         class="m-2 p-5">
+                        <div class="row mt-1">
+                            <div class="col-12">
+                                <p class="lead" style="color: #000000 !important;">
+                                    {{ forloop.counter }} : {{ question }}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <h4 style="color: #FFFFFF;">Your Answer : </h4>
+                            </div>
+                            <div class="col-9">
+                                <select multiple class="form-control " name="{{ question.pk }}">
+                                    {% for answer in answers %}
+                                        <option value="{{ answer.pk }}"> {{ answer.text }} </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                <div class="row text-center">
+                    <div class="col-12">
+                        {% if request.user.is_instructor %}
+                        <a  class="btn btn-primary btn-lg w-50" href="{% url 'instructor:subject_exam_list' %}">Back</a>
+                        {% else %}
+                        <input class=" btn btn-primary btn-lg w-50" type="submit" value="Finish">
+                        {% endif %}
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

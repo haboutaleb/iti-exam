@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row mt-5 mb-5">
+        <div class="col-12">
+            <a href="{% url 'show_information' %}" class="btn btn-danger" role="button"> Back </a>
+        </div>
+        <hr/>
+        <div class="col-12">
+
+            <h2 class="h1 text-center">Show Information Instructors</h2>
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered">
+                    <tr>
+                        <th>Instructors Name</th>
+                        <th>Instructors Subjects</th>
+                        <th>Option</th>
+                    </tr>
+                    {% for Instructor in Instructors %}
+                        <tr>
+                            <td>
+                                {{ Instructor.user.username }}
+                            </td>
+
+                            <td>
+                                {{ Instructor.subject.name }}
+                            </td>
+
+                            <td>
+                                <button type="submit" value="Delete" id="{{ Instructor.user.id }}"
+                                        class="btn btn-danger">
+                                    delete
+                                </button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+                </table>
+                <a href="{% url 'instructor_signup' %}" class="btn btn-warning" role="button">Add
+                    instructor</a>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        let table = document.getElementsByTagName("table")[0],
+            ajax = new XMLHttpRequest();
+
+        table.onclick = function (event) {
+            if (event.target.tagName == "BUTTON") {
+                row = event.target.parentElement.parentElement;
+                ajax.open("GET", "http://localhost:8000/accounts/signup/showInformation/Instructor/delete/" + event.target.id);
+                ajax.send();
+                ajax.onreadystatechange = () => {
+                    if (ajax.readyState === 4 && ajax.status === 200) {
+                        response = JSON.parse(ajax.responseText);
+                        console.log(response);
+                        if (response.success) {
+                            row.remove();
+                        } else {
+                            flash.innerHTML = "<p class='alert alert-danger'>" + data.msg + "</p>";
+                        }
+                        // if(response['msg']== "done")
+                        // row.remove();
+                    }
+                }
+            }
+        }
+
+
+    </script>
+
+{% endblock %}

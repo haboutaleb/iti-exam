@@ -1,0 +1,14 @@
+<h2 class="h1 text-center">Quizzes</h2>
+
+<p class="lead h2" style="color: #FFFFFF;">
+  Subjects:{% for subject in user.student.subjects.all %} {{ subject.get_html_badge }}{% endfor %}
+</p>
+
+<ul class="nav nav-tabs mb-3">
+  <li class="nav-item">
+    <a class="nav-link{% if active == 'new' %} active{% endif %}" href="{% url 'student:exam_list' %}">New</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link{% if active == 'taken' %} active{% endif %}" href="{% url 'student:taken_exam_list' %}">Taken</a>
+  </li>
+</ul>

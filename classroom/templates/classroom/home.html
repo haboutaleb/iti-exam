@@ -1,0 +1,354 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block slider %}
+    <!-- PhotoSlider Section -->
+    <div class="photoslider-section container-fluid no-padding">
+        <div id="home-slider" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item item active">
+                    <img src="{% static 'images/bg-1.jpg' %}" alt="photoslider1" width="1920" height="801"/>
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <div class="col-md-6 col-sm-8 col-xs-8 ow-pull-right no-padding">
+                                <h3 data-animation="animated bounceInLeft">Welcome To</h3>
+                                <h4 data-animation="animated fadeInDown">ITI <span>Examination</span><span
+                                        class="icon-emo-happy"></span></h4>
+                                <p data-animation="animated bounceInRight">We belive nothing is more important than
+                                    education. The best learning institution</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item item">
+                    <img src="{% static 'images/bg-2.jpg' %}" alt="photoslider2" width="1920" height="801"/>
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <div class="col-md-6 col-sm-8 col-xs-8 ow-pull-left no-padding">
+                                <h3 data-animation="animated bounceInLeft">Welcome To</h3>
+                                <h4 data-animation="animated fadeInDown">ITI <span>Examination</span><span
+                                        class="icon-emo-happy"></span></h4>
+                                <p data-animation="animated bounceInRight">We belive nothing is more important than
+                                    education. The best learning institution</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#home-slider" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#home-slider" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div><!-- PhotoSlider Section /- -->
+{% endblock %}
+{% block content %}
+    <!-- Welcome Section -->
+	    <div class="container welcome-section" id="welcome-section1">
+		<div class="section-padding"></div>
+		<div class="section-header">
+			<h3>Popular <span>Courses</span></h3>
+			<p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-sm-6 col-xs-6">
+				<div class="welcome-box">
+					<img src="{%  static 'images/tea1.jpg' %}" alt="welcome1" width="370" height="440"/>
+					<div class="welcome-title">
+						<h3>Political science</h3>
+					</div>
+					<div class="welcome-content">
+						<span>(Peter Parker)</span>
+						<p>Then one day he was shootinsome  When the against him bubblin</p>
+						<ul class="course-detail">
+							<li><i class="fa fa-calendar" aria-hidden="true"></i>Course duration : <span>3 Yr</span></li>
+							<li><i class="fa fa-graduation-cap" aria-hidden="true"></i>Degree Level : <span>Master’s Degree</span></li>
+						</ul>
+						<ul class="course-rating">
+							<li><a href="#" title="1 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="2 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="3 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="4 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="5 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+						</ul>
+						<a href="coursesdetails-page.html" title="Apply now">Apply now</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-6">
+				<div class="welcome-box">
+					<img src="{%  static 'images/tea2.jpg' %}" alt="welcome2" width="370" height="440"/>
+					<div class="welcome-title">
+						<h3>Micro Biology</h3>
+					</div>
+					<div class="welcome-content">
+						<span>(Peter Parker)</span>
+						<p>Then one day he was shootinsome  When the against him bubblin</p>
+						<ul class="course-detail">
+							<li><i class="fa fa-calendar" aria-hidden="true"></i>Course duration : <span>3 Yr</span></li>
+							<li><i class="fa fa-graduation-cap" aria-hidden="true"></i>Degree Level : <span>Master’s Degree</span></li>
+						</ul>
+						<ul class="course-rating">
+							<li><a href="#" title="1 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="2 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="3 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="4 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="5 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+						</ul>
+						<a href="coursesdetails-page.html" title="Apply now">Apply now</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-6">
+				<div class="welcome-box">
+					<img src="{%  static 'images/tea2.jpg' %}" alt="welcome3" width="370" height="440"/>
+					<div class="welcome-title">
+						<h3>Computer Science</h3>
+					</div>
+					<div class="welcome-content">
+						<span>(Peter Parker)</span>
+						<p>Then one day he was shootinsome  When the against him bubblin</p>
+						<ul class="course-detail">
+							<li><i class="fa fa-calendar" aria-hidden="true"></i>Course duration : <span>3 Yr</span></li>
+							<li><i class="fa fa-graduation-cap" aria-hidden="true"></i>Degree Level : <span>Master’s Degree</span></li>
+						</ul>
+						<ul class="course-rating">
+							<li><a href="#" title="1 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="2 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="3 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="4 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="5 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+						</ul>
+						<a href="coursesdetails-page.html" title="Apply now">Apply now</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        <div class="row">
+			<div class="col-md-4 col-sm-6 col-xs-6">
+				<div class="welcome-box">
+					<img src="{%  static 'images/tea4.jpg' %}" alt="welcome1" width="370" height="440"/>
+					<div class="welcome-title">
+						<h3>Political science</h3>
+					</div>
+					<div class="welcome-content">
+						<span>(Peter Parker)</span>
+						<p>Then one day he was shootinsome  When the against him bubblin</p>
+						<ul class="course-detail">
+							<li><i class="fa fa-calendar" aria-hidden="true"></i>Course duration : <span>3 Yr</span></li>
+							<li><i class="fa fa-graduation-cap" aria-hidden="true"></i>Degree Level : <span>Master’s Degree</span></li>
+						</ul>
+						<ul class="course-rating">
+							<li><a href="#" title="1 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="2 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="3 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="4 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="5 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+						</ul>
+						<a href="coursesdetails-page.html" title="Apply now">Apply now</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-6">
+				<div class="welcome-box">
+					<img src="{%  static 'images/tea3.jpg' %}" alt="welcome2" width="370" height="440"/>
+					<div class="welcome-title">
+						<h3>Micro Biology</h3>
+					</div>
+					<div class="welcome-content">
+						<span>(Peter Parker)</span>
+						<p>Then one day he was shootinsome  When the against him bubblin</p>
+						<ul class="course-detail">
+							<li><i class="fa fa-calendar" aria-hidden="true"></i>Course duration : <span>3 Yr</span></li>
+							<li><i class="fa fa-graduation-cap" aria-hidden="true"></i>Degree Level : <span>Master’s Degree</span></li>
+						</ul>
+						<ul class="course-rating">
+							<li><a href="#" title="1 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="2 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="3 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="4 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="5 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+						</ul>
+						<a href="coursesdetails-page.html" title="Apply now">Apply now</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-6">
+				<div class="welcome-box">
+					<img src="{%  static 'images/tea2.jpg' %}" alt="welcome3" width="370" height="440"/>
+					<div class="welcome-title">
+						<h3>Computer Science</h3>
+					</div>
+					<div class="welcome-content">
+						<span>(Peter Parker)</span>
+						<p>Then one day he was shootinsome  When the against him bubblin</p>
+						<ul class="course-detail">
+							<li><i class="fa fa-calendar" aria-hidden="true"></i>Course duration : <span>3 Yr</span></li>
+							<li><i class="fa fa-graduation-cap" aria-hidden="true"></i>Degree Level : <span>Master’s Degree</span></li>
+						</ul>
+						<ul class="course-rating">
+							<li><a href="#" title="1 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="2 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="3 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="4 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="5 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+						</ul>
+						<a href="coursesdetails-page.html" title="Apply now">Apply now</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        <div class="row">
+			<div class="col-md-4 col-sm-6 col-xs-6">
+				<div class="welcome-box">
+					<img src="{%  static 'images/tea1.jpg' %}" alt="welcome1" width="370" height="440"/>
+					<div class="welcome-title">
+						<h3>Political science</h3>
+					</div>
+					<div class="welcome-content">
+						<span>(Peter Parker)</span>
+						<p>Then one day he was shootinsome  When the against him bubblin</p>
+						<ul class="course-detail">
+							<li><i class="fa fa-calendar" aria-hidden="true"></i>Course duration : <span>3 Yr</span></li>
+							<li><i class="fa fa-graduation-cap" aria-hidden="true"></i>Degree Level : <span>Master’s Degree</span></li>
+						</ul>
+						<ul class="course-rating">
+							<li><a href="#" title="1 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="2 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="3 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="4 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="5 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+						</ul>
+						<a href="coursesdetails-page.html" title="Apply now">Apply now</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-6">
+				<div class="welcome-box">
+					<img src="{%  static 'images/tea2.jpg' %}" alt="welcome2" width="370" height="440"/>
+					<div class="welcome-title">
+						<h3>Micro Biology</h3>
+					</div>
+					<div class="welcome-content">
+						<span>(Peter Parker)</span>
+						<p>Then one day he was shootinsome  When the against him bubblin</p>
+						<ul class="course-detail">
+							<li><i class="fa fa-calendar" aria-hidden="true"></i>Course duration : <span>3 Yr</span></li>
+							<li><i class="fa fa-graduation-cap" aria-hidden="true"></i>Degree Level : <span>Master’s Degree</span></li>
+						</ul>
+						<ul class="course-rating">
+							<li><a href="#" title="1 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="2 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="3 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="4 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="5 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+						</ul>
+						<a href="coursesdetails-page.html" title="Apply now">Apply now</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-6">
+				<div class="welcome-box">
+					<img src="{%  static 'images/tea4.jpg' %}" alt="welcome3" width="370" height="440"/>
+					<div class="welcome-title">
+						<h3>Computer Science</h3>
+					</div>
+					<div class="welcome-content">
+						<span>(Peter Parker)</span>
+						<p>Then one day he was shootinsome  When the against him bubblin</p>
+						<ul class="course-detail">
+							<li><i class="fa fa-calendar" aria-hidden="true"></i>Course duration : <span>3 Yr</span></li>
+							<li><i class="fa fa-graduation-cap" aria-hidden="true"></i>Degree Level : <span>Master’s Degree</span></li>
+						</ul>
+						<ul class="course-rating">
+							<li><a href="#" title="1 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="2 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="3 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="4 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="5 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+						</ul>
+						<a href="coursesdetails-page.html" title="Apply now">Apply now</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        <div class="row">
+			<div class="col-md-4 col-sm-6 col-xs-6">
+				<div class="welcome-box">
+					<img src="{%  static 'images/tea3.jpg' %}" alt="welcome1" width="370" height="440"/>
+					<div class="welcome-title">
+						<h3>Political science</h3>
+					</div>
+					<div class="welcome-content">
+						<span>(Peter Parker)</span>
+						<p>Then one day he was shootinsome  When the against him bubblin</p>
+						<ul class="course-detail">
+							<li><i class="fa fa-calendar" aria-hidden="true"></i>Course duration : <span>3 Yr</span></li>
+							<li><i class="fa fa-graduation-cap" aria-hidden="true"></i>Degree Level : <span>Master’s Degree</span></li>
+						</ul>
+						<ul class="course-rating">
+							<li><a href="#" title="1 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="2 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="3 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="4 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="5 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+						</ul>
+						<a href="coursesdetails-page.html" title="Apply now">Apply now</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-6">
+				<div class="welcome-box">
+					<img src="{%  static 'images/tea1.jpg' %}" alt="welcome2" width="370" height="440"/>
+					<div class="welcome-title">
+						<h3>Micro Biology</h3>
+					</div>
+					<div class="welcome-content">
+						<span>(Peter Parker)</span>
+						<p>Then one day he was shootinsome  When the against him bubblin</p>
+						<ul class="course-detail">
+							<li><i class="fa fa-calendar" aria-hidden="true"></i>Course duration : <span>3 Yr</span></li>
+							<li><i class="fa fa-graduation-cap" aria-hidden="true"></i>Degree Level : <span>Master’s Degree</span></li>
+						</ul>
+						<ul class="course-rating">
+							<li><a href="#" title="1 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="2 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="3 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="4 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="5 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+						</ul>
+						<a href="coursesdetails-page.html" title="Apply now">Apply now</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-6">
+				<div class="welcome-box">
+					<img src="{%  static 'images/tea4.jpg' %}" alt="welcome3" width="370" height="440"/>
+					<div class="welcome-title">
+						<h3>Computer Science</h3>
+					</div>
+					<div class="welcome-content">
+						<span>(Peter Parker)</span>
+						<p>Then one day he was shootinsome  When the against him bubblin</p>
+						<ul class="course-detail">
+							<li><i class="fa fa-calendar" aria-hidden="true"></i>Course duration : <span>3 Yr</span></li>
+							<li><i class="fa fa-graduation-cap" aria-hidden="true"></i>Degree Level : <span>Master’s Degree</span></li>
+						</ul>
+						<ul class="course-rating">
+							<li><a href="#" title="1 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="2 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="3 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="4 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+							<li><a href="#" title="5 Star"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+						</ul>
+						<a href="coursesdetails-page.html" title="Apply now">Apply now</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <!-- Welcome Section /- -->
+{% endblock %}

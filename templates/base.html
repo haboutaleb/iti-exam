@@ -1,0 +1,278 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta http-equiv="cache-control" content="no-store,no-cache"/>
+    <title>{% block title %}ITI Examination{% endblock %}</title>
+    <link rel="icon" href="{% static 'images/favicon.png' %}"/>
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,900,300,300italic,500,700' rel='stylesheet'
+          type='text/css'/>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'/>
+    <link href='https://fonts.googleapis.com/css?family=Niconne' rel='stylesheet' type='text/css'/>
+    <link href="https://fonts.googleapis.com/css?family=Clicker+Script" rel="stylesheet"/>
+    <!--===============================================================================================-->
+    <!-- Library --->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/Stroke-Gap-Icon/stroke-gap-icon.css' %}"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/fontello-2f186091/css/fontello.css' %}"/>
+    <!--===============================================================================================-->
+
+
+    <!-- For iPhone 4 Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+          href="{% static 'images/apple-touch-icon-114x114-precomposed.png' %}"/>
+    <!-- For iPad: -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+          href="{% static 'images/apple-touch-icon-72x72-precomposed.png' %}"/>
+    <!-- For iPhone: -->
+    <link rel="apple-touch-icon-precomposed" href="{% static 'images/apple-touch-icon-57x57-precomposed.png' %}"/>
+    <!--===============================================================================================-->
+    <!-- Custom - Common CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/plugins.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/navigation-menu.css' %}"/>
+
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}"/>
+    <!-- Custom - Theme CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/shortcode.css' %} "/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}"/>
+
+</head>
+<body>
+<!-- Header -->
+<header class="header-main container-fluid no-padding">
+    <!-- Top Header -->
+    <div class="top-header container-fluid p-2">
+        <div class="topheader-left">
+            <a href="tel:(+202) 353-55656" title="(+202) 353-55656"><i class="fa fa-mobile" aria-hidden="true"></i>(+202)
+                353-55656</a>
+            <a href="mailto:ITIinfo@iti.gov.eg" title="ITIinfo@iti.gov.eg"><i class="fa fa-envelope-o"
+                                                                              aria-hidden="true"></i>Emailus:
+                Iti@info.com</a>
+        </div>
+        <div class="topheader-right">
+
+            {% if user.is_authenticated %}
+                {% if user.is_student %}
+                      <p class="pt-3">Logged in as <strong style="color:white"><a class="btn btn-light" style="color:wight ;display:inline" href="{% url 'student_profile' %}">{{ user.username }}</a></strong><a  class ="btn btn-warning" style="color:wight ;display:inline " href="{% url 'logout' %}">Log
+                        out</a></p>
+                {% elif user.is_instructor %}
+                      <p class="pt-3">Logged in as <strong style="color:white"><a class="btn btn-light" style="color:wight ;display:inline"  href="{% url 'inst_profile' %}">{{ user.username }}</a></strong><a  class ="btn btn-warning" style="color:wight ;display:inline " href="{% url 'logout' %}">Log
+                        out</a></p>
+                {% else %}
+                   <p class="pt-3">Logged in as <strong style="color:white" style="color:wight ;display:inline" >{{ user.username }}</strong><a  class ="btn btn-warning" style="color:wight ;display:inline " href="{% url 'logout' %}">Log
+                    out</a></p>
+                {% endif %}
+            {% else %}
+                <a href="{% url 'login' %}" class="btn btn-primary p-2" role="button" style="background-color: #d8841c;">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>Sing In </a>
+            {% endif %}
+        </div>
+    </div><!-- Top Header /- -->
+
+    <!-- Menu Block -->
+    <div class="container-fluid no-padding">
+        <!-- Container -->
+        <!-- Navigation -->
+
+        <nav class="navbar navbar-dark bg-dark">
+            <a title="Logo" href="{% url 'home' %}" class="navbar-brand"><img src="{% static 'images/logo.png' %}"
+                                                                              alt="logo"/>ITI Examination
+                {% if user.is_authenticated %}
+                    {% if user.is_instructor %}
+                        <span class="icon-feather" data-toggle="tooltip" data-placement="right"
+                              title="Instructor profile"></span>
+                    {% elif user.is_student %}
+                        <span class="icon-graduation-cap" data-toggle="tooltip"
+                              data-placement="right"
+                              title="Student profile"></span>
+                    {% else %}
+                        <span class="icon-graduation-cap" data-toggle="tooltip"
+                              data-placement="right"
+                              title="Admin profile"></span>
+                    {% endif %}
+                {% endif %}</a>
+
+        </nav>
+    </div><!-- Menu Block /- -->
+</header><!-- Header /- -->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div>
+    {% block slider %}
+    {% endblock %}
+</div>
+<div class="container">
+    {% block content %}
+    {% endblock %}
+</div>
+<!-- Footer Main -->
+<footer class="footer-main container-fluid">
+    <!-- Container -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-4">
+                <aside class="ftr-widget about_widget">
+                    <a class="footer-logo" href="{% url 'home' %}" title="Logo"><img alt="logo"
+                                                                                     src="{% static 'images/logo.png' %}">ITI
+                        Examination<span>Education of Best</span></a>
+                    <ul>
+                        <li><a href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#" title="Google Plus"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#" title="Rss"><i class="fa fa-rss"></i></a></li>
+                    </ul>
+                    <p>The ITI-Community collaboration works to empower and enable the community with its dynamic
+                        sectors with the latest ICT tools and trends, by innovative solutions for the country’s critical
+                        issues addressing a real need and challenge. All besides; raising the awareness about how
+                        Technology can enable the world's citizens to live a better life and facilitate their day-to-day
+                        life activities. .</p>
+                </aside>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <aside class="ftr-widget upcomingevent_widget">
+                    <h3 class="widget-title">Up Comming Events</h3>
+                    <div id="upcomingevent_carousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active">
+                                <div class="upcoming-eventbox">
+                                    <p>These men promptly escaped from maximum security stockade to the Los Angeles
+                                        underground.</p>
+                                    <ul>
+                                        <li><a href="#" title="Time"><i class="fa fa-clock-o" aria-hidden="true"></i>8:00
+                                            Am - 5:00 Pm</a></li>
+                                        <li><a href="#" title="Date"><i class="fa fa-calendar" aria-hidden="true"></i>01
+                                            May 2016</a></li>
+                                        <li><a href="#" title="Location"><i class="fa fa-map-marker"
+                                                                            aria-hidden="true"></i>London, UK</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <hr/>
+                            <div class="item">
+                                <div class="upcoming-eventbox">
+                                    <p>These men promptly escaped from maximum security stockade to the Los Angeles
+                                        underground.</p>
+                                    <ul>
+                                        <li><a href="#" title="Time"><i class="fa fa-clock-o" aria-hidden="true"></i>9:00
+                                            Am - 10:00 Pm</a></li>
+                                        <li><a href="#" title="Date"><i class="fa fa-calendar" aria-hidden="true"></i>05
+                                            May 2016</a></li>
+                                        <li><a href="#" title="Location"><i class="fa fa-map-marker"
+                                                                            aria-hidden="true"></i>London, UK</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <aside class="ftr-widget flickr_widget">
+                    <h3 class="widget-title">Our Flicker</h3>
+                    <ul>
+<<<<<<< HEAD
+                        <li><a href="#" title="Flickr"><img src="{% static 'images/pc-1.jpg' %}" alt="flickr1"
+                                                            width="85" height="83"/></a></li>
+                        <li><a href="#" title="Flickr"><img src="{% static 'images/pc-2.jpg' %}" alt="flickr2"
+                                                            width="85" height="83"/></a></li>
+                        <li><a href="#" title="Flickr"><img src="{% static 'images/pc-3.jpg' %}" alt="flickr3"
+                                                            width="85" height="83"/></a></li>
+                        <li><a href="#" title="Flickr"><img src="{% static 'images/pc-4.jpg' %}" alt="flickr4"
+                                                            width="85" height="83"/></a></li>
+                        <li><a href="#" title="Flickr"><img src="{% static 'images/pc-5.jpg' %}" alt="flickr5"
+                                                            width="85" height="83"/></a></li>
+                        <li><a href="#" title="Flickr"><img src="{% static 'images/pc-6.jpg' %}" alt="flickr6"
+=======
+                        <li><a href="#" title="Flickr"><img src="{% static 'images/gallery1.jpg' %}" alt="flickr1"
+                                                            width="85" height="83"/></a></li>
+                        <li><a href="#" title="Flickr"><img src="{% static 'images/gallery2.jpg' %}" alt="flickr2"
+                                                            width="85" height="83"/></a></li>
+                        <li><a href="#" title="Flickr"><img src="{% static 'images/gallery3.jpg' %}" alt="flickr3"
+                                                            width="85" height="83"/></a></li>
+                        <li><a href="#" title="Flickr"><img src="{% static 'images/gallery4.jpg' %}" alt="flickr4"
+                                                            width="85" height="83"/></a></li>
+                        <li><a href="#" title="Flickr"><img src="{% static 'images/gallery5.jpg' %}" alt="flickr5"
+                                                            width="85" height="83"/></a></li>
+                        <li><a href="#" title="Flickr"><img src="{% static 'images/gallery6.jpg' %}" alt="flickr6"
+                                                            width="85" height="83"/></a></li>
+                        <li><a href="#" title="Flickr"><img src="{% static 'images/gallery4.jpg' %}" alt="flickr4"
+                                                            width="85" height="83"/></a></li>
+                        <li><a href="#" title="Flickr"><img src="{% static 'images/gallery5.jpg' %}" alt="flickr5"
+                                                            width="85" height="83"/></a></li>
+                        <li><a href="#" title="Flickr"><img src="{% static 'images/gallery6.jpg' %}" alt="flickr6"
+>>>>>>> dabe03d7e7e71d7f21a211406d4336f99cf5794c
+                                                            width="85" height="83"/></a></li>
+                    </ul>
+                </aside>
+            </div>
+            <!-- Footer Bottom -->
+            <div class="footer-bottom col-12 no-padding">
+                <div class="copyright no-padding">
+                    <span>Copyright &copy; 2019. All Rights Reserved.</span>
+                </div>
+            </div><!-- Footer Bottom /- -->
+        </div>
+    </div><!-- Container /- -->
+</footer><!-- Footer /- -->
+
+<!--===============================================================================================-->
+<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/tooltip.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.js' %}"></script>
+<script src="{% static 'js/plugins/plugins.js' %}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/tilt/tilt.jquery.min.js' %}"></script>
+<script src="{% static 'js/functions.js' %}"></script>
+<script>
+    $('.js-tilt').tilt({
+        scale: 1.1
+    })
+</script>
+<script type="text/javascript">
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    })
+</script>
+<!--===============================================================================================-->
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>
+

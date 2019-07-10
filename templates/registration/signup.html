@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="admin-home">
+        <h2 class="h1 mb-4 text-center">Sign up for a free account</h2>
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <p   style="bg-color:#ffc107; border-color: #ffc107; color:white; margin:6px" class=" text-center">Select below the type of account you want to create</p>
+            </div>
+        </div>
+        <hr/>
+        <div class="row">
+            <div class="col-12 text-center">
+                <a href="{% url 'student_signup' %}" class="btn btn-student btn-lg" role="button">Add student</a>
+                <a href="{% url 'instructor_signup' %}" class="btn btn-teacher btn-lg" role="button">Add Instructor</a>
+                <a href="{% url 'manager_signup' %}" class="btn btn-teacher btn-lg" role="button">Add manager</a>
+                <a href="{% url 'subject_add' %}" class="btn btn-success btn-lg" role="button">Add Subject</a>
+                <a href="{% url 'show_information' %}" class="btn btn-primary btn-lg" role="button">show Information</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

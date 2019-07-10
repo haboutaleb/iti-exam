@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="col-12"></div>
+    <div class="row mt-5 mb-5">
+        <div class="col-12">
+            <a href="{% url 'show_information' %}" class="btn btn-danger mb-4" role="button"> Back </a>
+        </div>
+        <hr/>
+       <form action="{% url 'add_subjects_students' %}" method="post" novalidate class="login100-form-register validate-form">
+             {% csrf_token %}
+           <div class="row mb-4">
+                   <div class="col-6 ">
+                       <h3 class="text-center mb-2">Students</h3>
+                       {% for student  in students %}
+                       <div class="text-center">
+                        <input class="form-check-input" type="checkbox" value="{{student.pk}}" name="students" id="students_pk">
+                       <label class="form-check-label" for="students_pk">{{student}}</label>
+                       </div>
+                       {% endfor %}
+                   </div>
+                   <div class="col-6 ">
+                       <h3 class="text-center mb-2">Subjects</h3>
+                       {% for subject  in subjects %}
+                       <div class="text-center">
+                        <input class="form-check-input" type="checkbox" value="{{subject.pk}}" name="subjects" id="subjects_pk">
+                       <label class="form-check-label" for="subjects_pk">{{subject}}</label>
+                       </div>
+                       {% endfor %}
+                   </div>
+                </div>
+                    <input type="submit" class="form-control btn  btn-success" value="SET">
+
+
+
+       </form>
+
+{% endblock %}
